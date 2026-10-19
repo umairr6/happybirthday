@@ -3,6 +3,10 @@
 
 import { useRef, useState } from "react";
 
+
+const basePath =
+  process.env.NODE_ENV === "production" ? "/happybirthday" : "";
+
 const months = [
   "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December",
@@ -48,20 +52,20 @@ const questions = [
 
 const photos = [
   {
-    src: "/images/photo-1.jpg",
+    src: `${basePath}/images/photo-1.jpg`,
     alt: "A special memory",
 
   },
   {
-    src: "/images/photo-2.jpg",
+    src: `${basePath}/images/photo-2.jpg`,
     alt: "A beautiful moment",
   },
   {
-    src: "/images/photo-3.jpg",
+    src: `${basePath}/images/photo-3.jpg`,
     alt: "A treasured memory",
   },
   {
-    src: "/images/photo-4.jpg",
+    src: `${basePath}/images/photo-4.jpg`,
     alt: "A memory close to my heart",
   },
 ];
@@ -178,7 +182,7 @@ export default function Home() {
     <main className="birthday-page">
       <audio
         ref={audioRef}
-        src="/music/birthday-song.mp3"
+        src={`${basePath}/music/birthday-song.mp3`}
         loop
         preload="auto"
       />
@@ -546,7 +550,7 @@ export default function Home() {
                     alt={photo.alt}
                     loading="lazy"
                   />
-                
+
                 </figure>
               ))}
 
@@ -560,7 +564,7 @@ export default function Home() {
                   poster="/images/photo-1.jpg"
                 >
                   <source
-                    src="/images/birthday-video.mp4"
+                    src={`${basePath}/images/birthday-video.mp4`}
                     type="video/mp4"
                   />
                   Your browser does not support this video.
